@@ -1,1 +1,22 @@
-<!DOCTYPE html><html><head><title>UTS Mock</title><link rel="manifest" href="/manifest.webmanifest"><script id="vite-plugin-pwa:register-sw" src="/registerSW.js"></script></head><body><div id='root'></div></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Workbox Example</title>
+</head>
+<body>
+  <h1>Workbox Service Worker Example</h1>
+  <p>This page is cached and works offline!</p>
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js')
+          .then(reg => console.log('Service worker registered:', reg.scope))
+          .catch(err => console.error('Service worker registration failed:', err));
+      });
+    }
+  </script>
+</body>
+</html>
